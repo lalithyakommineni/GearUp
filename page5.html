@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduWorld Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #3C6E71;
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .logo img {
+            width: 150px;
+        }
+        .profile-sidebar {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background: #BCB8B1;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+            transition: left 0.3s;
+        }
+        .profile-sidebar.active {
+            left: 0;
+        }
+        .profile img {
+            width: 100px;
+            display: block;
+            margin: 0 auto;
+            border-radius: 50%;
+        }
+        .profile h3 {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            margin: 15px 0;
+        }
+        .nav-buttons button {
+            background-color: #284B63;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .feature {
+            width: 250px;
+            background: white;
+            padding: 15px;
+            margin: 10px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .feature:hover {
+            transform: scale(1.05);
+        }
+        .feature img {
+            width: 60px;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span class="menu-icon" onclick="toggleProfile()">&#9776;</span>
+        <div class="logo">
+            <img src="https://eduworldconnect.com/wp-content/uploads/2023/09/cropped-EC-1024x556.png" alt="EduWorld Logo">
+        </div>
+    </header>
+    
+    <div class="profile-sidebar" id="profileSidebar">
+        <div class="profile">
+            <img src="https://cdn3.vectorstock.com/i/1000x1000/79/72/job-symbol-on-student-flat-vector-15947972.jpg" alt="Student Profile">
+            <h3>John Doe</h3>
+            <p>Class: 8th</p>
+            <p>Board: CBSE</p>
+            <p>Streak: 15 Days</p>
+        </div>
+    </div>
+    
+    <div class="nav-buttons">
+        <button>Home</button>
+        <button>Subjects</button>
+        <button>Quizzes</button>
+        <button>Streaks</button>
+    </div>
+    
+    <div class="features">
+        <div class="feature">
+            <img src="https://cdn-icons-png.flaticon.com/512/201/201623.png" alt="Classes">
+            <h3>Personalized Learning</h3>
+            <p>Tailored lessons just for you.</p>
+        </div>
+        <div class="feature">
+            <img src="https://cdn-icons-png.flaticon.com/512/1648/1648216.png" alt="Quizzes">
+            <h3>Fun Quizzes</h3>
+            <p>Test your knowledge with exciting quizzes.</p>
+        </div>
+        <div class="feature">
+            <img src="https://cdn-icons-png.flaticon.com/512/3306/3306671.png" alt="Streaks">
+            <h3>Track Your Streak</h3>
+            <p>Maintain your learning streaks and win rewards.</p>
+        </div>
+        <div class="feature">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Hobby Learning">
+            <h3>Hobby Learning</h3>
+            <p>Explore your hobbies through learning.</p>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleProfile() {
+            let sidebar = document.getElementById('profileSidebar');
+            sidebar.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

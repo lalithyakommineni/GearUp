@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GearUp:~Where curiosity meets knowledge</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #D9D9D9;
+            color: #353535;
+            margin: 0;
+            padding: 0;
+            padding-bottom: 60px;
+        }
+        header {
+            background-color: #3C6E71;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .banner img {
+            width: 100%;
+            height: auto;
+        }
+        .section {
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            background-color: #BCB8B1;
+        }
+        h2 {
+            text-align: center;
+            color: #284B63;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .feature {
+            width: 30%;
+            margin: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature img {
+            width: 80%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .feature:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        .quote {
+            text-align: center;
+            font-style: italic;
+            font-size: 1.2em;
+            margin: 20px 0;
+            color: #284B63;
+        }
+        footer {
+            background-color: #3C6E71;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .login-section {
+            padding: 30px;
+            text-align: center;
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 400px;
+        }
+        .login-section input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .login-section button {
+            width: 100%;
+            padding: 10px;
+            background-color: #284B63;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .login-section button:hover {
+            background-color: #BCB8B1;
+        }
+
+        /* Chatbot styling */
+        #chatbot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 1000;
+        }
+
+        #chatbot iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+
+        #chatbot-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #284B63;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to GearUp</h1>
+    <p>"Where curiosity meets knowledge"</p>
+</header>
+
+<div class="banner">
+    <img src="https://d2l4kn3pfhqw69.cloudfront.net/wp-content/uploads/2020/09/kids-virtual-learning.jpg" alt="Virtual Learning Banner">
+</div>
+
+<div class="section">
+    <h2>Our Features</h2>
+    <div class="features">
+        <div class="feature">
+            <img src="https://images.collegexpress.com/blog/6-classes-take-high-school-prepare-college.jpg" alt="Classes">
+            <h3>Classes from LKG to BTech</h3>
+            <p>From early education to higher studies, we offer a wide range of subjects for every age group.</p>
+        </div>
+
+        <div class="feature">
+            <img src="https://www.idreameducation.org/blog/wp-content/uploads/2023/12/advantages-of-personalized-adaptive-learning-for-school-students-1536x853.webp" alt="Personalized Learning">
+            <h3>Personalized Learning</h3>
+            <p>Adaptive learning paths that suit your learning style and speed.</p>
+        </div>
+
+        <div class="feature">
+            <img src="https://thumbs.dreamstime.com/z/cartoon-star-superhero-isolated-white-97300319.jpg?ct=jpeg" alt="Streaks and Rewards">
+            <h3>Streaks and Rewards</h3>
+            <p>Keep track of your learning progress with fun stickers like stars, cars, or gems based on your interests!</p>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="features">
+        <div class="feature">
+            <img src="https://storage.googleapis.com/ureify-strapi-assets/strengths_and_weaknesses_on_a_resume_7ce950387b/strengths_and_weaknesses_on_a_resume_7ce950387b.png" alt="Analysis">
+            <h3>Strength & Weakness Analysis</h3>
+            <p>We assess your learning progress to help you focus on areas where you need improvement.</p>
+        </div>
+
+        <div class="feature">
+            <img src="https://www.quizwitz.com/assets/img/generated/blog/2023-01-25/quiz-800-487a99eb5.webp" alt="Quiz Activities">
+            <h3>Fun Quiz Activities</h3>
+            <p>Engage in interactive quizzes to reinforce your knowledge in a fun way.</p>
+        </div>
+
+        <div class="feature">
+            <img src="https://img.freepik.com/free-vector/organic-flat-design-about-me-concept_23-2148905881.jpg" alt="Hobby Learning">
+            <h3>Hobby Learning</h3>
+            <p>Explore learning opportunities in your hobbies and interests, from arts to science!</p>
+        </div>
+    </div>
+</div>
+
+<div class="quote">
+    <p>"Virtual learning empowers students to achieve greater grades and enjoy a personalized learning journey."</p>
+</div>
+
+<div class="login-section">
+    <h2>Login to Your Account</h2>
+    <form action="#">
+        <input type="text" placeholder="Username" required>
+        <input type="password" placeholder="Password" required>
+        <button><a href="page2.html">Login</a></button>
+    </form>
+</div>
+
+<div id="chatbot">
+    <iframe src="https://console.dialogflow.com/api-client/demo/embedded/c0d12861-c205-43c1-9d7a-5edb93a16fc1"></iframe>
+</div>
+<button id="chatbot-btn" onclick="toggleChatbot()">💬</button>
+
+<footer>
+    <p>&copy; 2025 GearUp - Learn, Grow, Succeed</p>
+</footer>
+
+<script>
+    function toggleChatbot() {
+        var chatbot = document.getElementById("chatbot");
+        chatbot.style.display = chatbot.style.display === "none" ? "block" : "none";
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GearUp: Where curiosity meets knowledge</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #D9D9D9;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3C6E71;
+            color: white;
+            padding: 15px 20px;
+        }
+        .logo {
+            height: 50px;
+        }
+        .site-name {
+            flex-grow: 1;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .hamburger {
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .profile-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            background-color: white;
+            padding: 20px;
+            width: 300px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        .profile-menu img {
+            width: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .profile-menu p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .nav-btn {
+            background-color: #284B63;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+        }
+        .feature {
+            background-color: #BCB8B1;
+            padding: 15px;
+            border-radius: 10px;
+            width: 200px;
+            transition: transform 0.2s;
+        }
+        .feature:hover {
+            transform: scale(1.1);
+        }
+        .feature img {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hamburger" onclick="toggleProfile()">&#9776;</div>
+        <div class="site-name">GearUp: Where curiosity meets knowledge</div>
+        <img src="https://cdn.dribbble.com/userupload/11496814/file/original-c108095d2db6439d7aab2899481f4af0.png" class="logo" alt="GearUp Logo">
+    </header>
+    
+    <div class="profile-menu" id="profile-menu">
+        <img src="https://cdn3.vectorstock.com/i/1000x1000/79/72/job-symbol-on-student-flat-vector-15947972.jpg" alt="Student Profile">
+        <p><strong>Name:</strong> John Doe</p>
+        <p><strong>Class:</strong> 10th Grade</p>
+        <p><strong>Board:</strong> CBSE</p>
+        <p><strong>Streak:</strong> 15 Days</p>
+        <p><strong>Assignments:</strong> 5 Pending</p>
+        <p><strong>To-Do List:</strong> 3 Tasks Left</p>
+    </div>
+    
+    <nav>
+        <div class="nav-btn">Home</div>
+        <div class="nav-btn">Subjects</div>
+        <div class="nav-btn">Quizzes</div>
+        <div class="nav-btn">Streaks</div>
+    </nav>
+    
+    <div class="features">
+        <div class="feature">
+            <img src="https://cdn-icons-png.flaticon.com/512/201/201623.png" alt="Classes">
+            <h3>Personalized Learning</h3>
+            <p>Tailored lessons just for you.</p>
+        </div>
+        <div class="feature">
+            <img src="https://cdn-icons-png.flaticon.com/512/1648/1648216.png" alt="Quizzes">
+            <h3>Fun Quizzes</h3>
+            <p>Test your knowledge with exciting quizzes.</p>
+        </div>
+        <div class="feature">
+            <img src="https://cdn-icons-png.flaticon.com/512/3306/3306671.png" alt="Streaks">
+            <h3>Track Your Streak</h3>
+            <p>Maintain your learning streaks and win rewards.</p>
+        </div>
+        <div class="feature">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Hobby Learning">
+            <h3>Hobby Learning</h3>
+            <p>Explore your hobbies through learning.</p>
+        </div>
+    </div>
+    
+    <script>
+        function toggleProfile() {
+            var profile = document.getElementById("profile-menu");
+            profile.style.display = profile.style.display === "block" ? "none" : "block";
+        }
+    </script>
+</body>
+</html>

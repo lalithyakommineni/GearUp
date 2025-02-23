@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduWorld Quiz</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #D9D9D9; /* Light Gray */
+            color: #353535; /* Dark Gray */
+            padding: 20px;
+        }
+        .quiz-container, .class-selection, .result-container {
+            background-color: #BCB8B1; /* White */
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            margin: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .result-container {
+            display: none;
+            margin-top: 20px;
+        }
+        canvas {
+            max-width: 300px;
+            max-height: 300px;
+            margin: auto;
+            display: block;
+        }
+        button {
+            background-color: #284B63; /* Darker Slate Blue */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        button:hover {
+            background-color: #3C6E71; /* Slate Blue */
+        }
+        select {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>EduWorld Quiz</h2>
+
+    <div class="class-selection">
+        <h3>Select Your Class</h3>
+        <select id="classSelect">
+            <option value="LKG">LKG</option>
+            <option value="1st">1st</option>
+            <option value="5th">5th</option>
+            <option value="10th">10th</option>
+            <option value="BTech">BTech</option>
+        </select>
+        <button onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <div class="quiz-container" id="quizContainer" style="display:none;">
+        <h3>Answer the Questions</h3>
+        <div id="questions"></div>
+        <button onclick="submitQuiz()">Submit</button>
+    </div>
+
+    <div class="result-container" id="resultContainer">
+        <h3>Your Score</h3>
+        <canvas id="resultChart"></canvas>
+        <h3 id="percentageScore"></h3>
+        <button><a href="page6.html">Continue</a></button>
+    </div>
+
+<script>
+    const quizQuestions = {
+        "LKG": [
+            { question: "What color is the sky?", options: ["Blue", "Green", "Red"], answer: "Blue" },
+            { question: "How many fingers do you have?", options: ["5", "10", "20"], answer: "10" }
+        ],
+        "1st": [
+            { question: "What is 2 + 2?", options: ["3", "4", "5"], answer: "4" },
+            { question: "Which animal says 'Meow'?", options: ["Dog", "Cat", "Elephant"], answer: "Cat" }
+        ],
+        "5th": [
+            { question: "What is the capital of India?", options: ["Mumbai", "Delhi", "Kolkata"], answer: "Delhi" },
+            { question: "What is 5 + 3?", options: ["7", "8", "9"], answer: "8" }
+        ],
+        "10th": [
+            { question: "Which planet is closest to the Sun?", options: ["Venus", "Mercury", "Mars"], answer: "Mercury" },
+            { question: "How many legs does a spider have?", options: ["6", "8", "10"], answer: "8" }
+        ],
+        "BTech": [
+            { question: "What is the time complexity of binary search?", options: ["O(n)", "O(log n)", "O(1)"], answer: "O(log n)" },
+            { question: "Which programming language is used for web development?", options: ["Python", "C++", "JavaScript"], answer: "JavaScript" }
+        ]
+    };
+
+    let selectedClass = "";
+    let currentQuestions = [];
+
+    function startQuiz() {
+        selectedClass = document.getElementById("classSelect").value;
+        currentQuestions = quizQuestions[selectedClass];
+
+        document.querySelector(".class-selection").style.display = "none";
+        document.getElementById("quizContainer").style.display = "block";
+
+        loadQuiz();
+    }
+
+    function loadQuiz() {
+        const questionsContainer = document.getElementById("questions");
+        questionsContainer.innerHTML = "";
+
+        currentQuestions.forEach((q, index) => {
+            let questionHTML = `
+                <div class="question">
+                    <p>${index + 1}. ${q.question}</p>
+                    ${q.options.map(option => 
+                        `<label><input type="radio" name="q${index}" value="${option}"> ${option}</label><br>`
+                    ).join("")}
+                </div>
+            `;
+            questionsContainer.innerHTML += questionHTML;
+        });
+    }
+
+    function submitQuiz() {
+        let correct = 0;
+        let total = currentQuestions.length;
+
+        currentQuestions.forEach((q, index) => {
+            const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
+            if (selectedOption && selectedOption.value === q.answer) {
+                correct++;
+            }
+        });
+
+        displayResults(correct, total);
+    }
+
+    function displayResults(correct, total) {
+        document.getElementById("resultContainer").style.display = "block";
+
+        let percentage = ((correct / total) * 100).toFixed(1);
+        document.getElementById("percentageScore").innerText = `Score: ${percentage}%`;
+
+        setTimeout(() => {
+            const canvas = document.getElementById('resultChart');
+            const ctx = canvas.getContext('2d');
+
+            // Destroy old chart instance if it exists
+            if (window.resultChart) {
+                window.resultChart.destroy();
+            }
+
+            // Clear previous canvas content
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Create a new Doughnut chart
+            window.resultChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: [`Correct Answers (${percentage}%)`, `Wrong Answers (${(100 - percentage).toFixed(1)}%)`],
+                    datasets: [{
+                        data: [correct, total - correct],
+                        backgroundColor: ["#3C6E71", "#FF3D00"]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        animateRotate: true
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(tooltipItem) {
+                                    return `${tooltipItem.label}: ${tooltipItem.raw}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }, 300);
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Class and Board</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFFFFF; /* White Background */
+            color: #353535; /* Dark Gray */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f4f8; /* Light Grayish Blue */
+        }
+        .container {
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+        }
+        h2 {
+            color: #284B63; /* Dark Slate Blue */
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #353535; /* Dark Gray */
+        }
+        select, button {
+            padding: 10px;
+            width: 100%;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        select {
+            background-color: #ffffff; /* White Background */
+            color: #353535; /* Dark Gray Text */
+        }
+        button {
+            background-color: #284B63; /* Dark Slate Blue */
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #BCB8B1; /* Slate Blue */
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e0f7fa;
+            border-radius: 5px;
+            display: none;
+            color: #353535; /* Dark Gray */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Select Your Class and Board</h2>
+    <form id="class-board-form">
+        <label for="class">Class:</label>
+        <select id="class" name="class">
+            <option value="lkg">LKG</option>
+            <option value="ukg">UKG</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            
+
+        </select>
+
+        <label for="board">Board:</label>
+        <select id="board" name="board">
+            <option value="cbse">CBSE</option>
+            <option value="ssc">SSC</option>
+            <option value="ICSE">ICSE</option>
+            
+        </select>
+
+        <button><a href="page4.html">submit</a></button>
+    </form>
+</body>
+</html>
